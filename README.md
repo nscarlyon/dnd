@@ -1,4 +1,6 @@
-# Dnd2
+# Dnd
+
+This is the finished version of the code I'll be live coding for ngConf. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
