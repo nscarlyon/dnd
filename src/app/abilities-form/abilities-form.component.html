@@ -1,0 +1,36 @@
+<div *ngIf="characterRace" class="character-form">
+  <h3>{{savedCharacterForm.characterName}} The {{savedCharacterForm.characterRace}}</h3>
+  <div class="abilities-headers">
+    <div class="ability-column">Ability Stat</div>
+    <div class="race-modifier-column">Race Modifier</div>
+    <div class="ability-total-column">Ability Total Score</div>
+    <div class="ability-modifier-column">Ability Modifier</div>
+  </div>
+  <form *ngIf="abilitiesForm" [formGroup]="abilitiesForm">
+    <div formArrayName="abilities">
+      <div class="ability-row" *ngFor="let ability of abilities.controls; let i = index" [formGroupName]="i">
+        <div class="ability-column"><label>{{ability.get('abilityName').value}}
+          <input type="text" formControlName="abilityStat">
+        </label>
+        </div>
+        <div class="race-modifier-column">
+          <label>
+            <input type="text" formControlName="raceModifier">
+          </label>
+        </div>
+        <div class="ability-total-column">
+          <label>
+            <input type="text" formControlName="abilityTotalScore">
+          </label>
+        </div>
+        <div class="ability-modifier-column">
+          <label>
+            <input type="text" formControlName="abilityModifier">
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button type="button" class="btn btn-primary" (click)="goToPageOne()">Back</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
