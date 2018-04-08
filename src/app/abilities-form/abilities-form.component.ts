@@ -44,9 +44,8 @@ export class AbilitiesFormComponent implements OnInit {
     this.router.navigate([""]);
   }
 
-  private createAbilitiesForm() {
+  createAbilitiesForm() {
     let abilitiesArray: FormArray = this.savedCharacterForm.abilities;
-    console.log(abilitiesArray);
 
     if (abilitiesArray.length == 0) {
       abilitiesArray = this.fb.array([
@@ -68,7 +67,7 @@ export class AbilitiesFormComponent implements OnInit {
     return this.abilitiesForm.get('abilities') as FormArray;
   }
 
-  private onChanges() {
+  onChanges() {
     this.abilities.controls.forEach(ability => {
       ability
         .valueChanges
@@ -80,7 +79,7 @@ export class AbilitiesFormComponent implements OnInit {
     })
   }
 
-  private updateAbilityScores(ability) {
+  updateAbilityScores(ability) {
     let abilityTotalScore: number = Number(ability.get('abilityStat').value) + Number(ability.get('raceModifier').value);
     let abilityModifier: number = Math.floor((abilityTotalScore - 10) / 2);
     ability.patchValue({abilityTotalScore: abilityTotalScore}, {emitEvent: false});

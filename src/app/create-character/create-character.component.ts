@@ -56,8 +56,7 @@ export class CreateCharacterComponent implements OnInit {
       characterName: [this.savedCharacterForm.characterName || "Sporkle"],
       characterLevel: this.savedCharacterForm.characterLevel,
       characterClass: this.savedCharacterForm.characterClass,
-      characterRace: this.savedCharacterForm.characterRace,
-      abilities: this.savedCharacterForm.abilities
+      characterRace: this.savedCharacterForm.characterRace
     });
     this.onChanges();
   }
@@ -80,7 +79,7 @@ export class CreateCharacterComponent implements OnInit {
   setNullSavedCharacterForm(): void {
     if (this.savedCharacterForm == null) {
       this.savedCharacterForm = {
-        characterName: "",
+        characterName: "Sporkle",
         characterLevel: this.levels[0],
         characterClass: this.classes[0],
         characterRace: this.races[0].subRaces[0],
