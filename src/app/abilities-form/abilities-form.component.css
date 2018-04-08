@@ -6,8 +6,12 @@
   display: flex;
 }
 
-.ability-column {
-  width: 30%;
+.ability-name-column {
+  width: 20%;
+}
+
+.ability-stat-column {
+  width: 20%;
 }
 
 .ability-row {
