@@ -5,7 +5,7 @@ import {CharacterPubSubService} from "../service/character-pubsub.service";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import {Router} from "@angular/router";
-import {FormBuilder, FormArray, FormGroup} from "@angular/forms";
+import {FormBuilder, FormArray, FormGroup, FormControl} from "@angular/forms";
 import {Ability} from "../shared/ability";
 import ableToSwitchToFrame = until.ableToSwitchToFrame;
 import {until} from "selenium-webdriver";
@@ -45,7 +45,7 @@ export class AbilitiesFormComponent implements OnInit {
 
   createAbilitiesForm() {
     this.abilitiesForm = this.fb.group({
+
     });
   }
-
 }

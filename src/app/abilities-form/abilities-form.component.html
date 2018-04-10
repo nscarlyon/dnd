@@ -8,8 +8,11 @@
     <div class="ability-modifier-column">Ability Modifier</div>
   </div>
   <form *ngIf="abilitiesForm" [formGroup]="abilitiesForm">
-
-
+    <div class="ability-row">
+      <div class="ability-name-column">
+        Strength
+      </div>
+    </div>
   </form>
   <button type="button" class="btn btn-primary" (click)="goToPageOne()">Back</button>
   <button type="submit" class="btn btn-primary">Submit</button>
