@@ -38,7 +38,11 @@ export class AbilitiesFormComponent implements OnInit {
       this.createAbilitiesForm();
       this.onChanges();
     })
-}
+  }
+
+  goToPageThree(): void {
+    this.router.navigate(["3"]);
+  }
 
   goToPageOne(): void {
     this.router.navigate([""]);

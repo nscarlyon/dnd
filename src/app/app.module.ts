@@ -8,13 +8,17 @@ import {CharacterService} from "./service/character.service";
 import { AbilitiesFormComponent } from './abilities-form/abilities-form.component';
 import {CharacterPubSubService} from "./service/character-pubsub.service";
 import {AppRoutingModule} from "./app-routing.module";
+import { ClassFormComponent } from './class-form/class-form.component';
+import { ClassFeaturesComponent } from './class-form/class-features/class-features.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateCharacterComponent,
-    AbilitiesFormComponent
+    AbilitiesFormComponent,
+    ClassFormComponent,
+    ClassFeaturesComponent
   ],
   imports: [
     BrowserModule,

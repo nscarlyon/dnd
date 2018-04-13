@@ -1,0 +1,14 @@
+<div *ngIf="savedCharacterForm" class="character-form">
+  <h3>{{savedCharacterForm.characterName}} The {{savedCharacterForm.characterClass}}</h3>
+  <form *ngIf="classForm" [formGroup]="classForm">
+    <div class="form-group">
+      <label>Arcane Tradition:
+        <select class="form-control" formControlName="characterPath">
+          <option *ngFor="let path of characterPaths" [value]="path">{{path}}</option>
+        </select>
+      </label>
+    </div>
+  </form>
+  <app-class-features></app-class-features>
+  <button type="button" class="btn btn-primary" (click)="goToPageTwo()">Back</button>
+</div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AbilitiesFormComponent} from "./abilities-form/abilities-form.component";
 import {CreateCharacterComponent} from "./create-character/create-character.component";
+import {ClassFormComponent} from "./class-form/class-form.component";
 
 const appRoutes: Routes = [
   {
@@ -11,6 +12,10 @@ const appRoutes: Routes = [
   {
     path: '2',
     component: AbilitiesFormComponent
+  },
+  {
+    path: '3',
+    component: ClassFormComponent
   }
 ];
 

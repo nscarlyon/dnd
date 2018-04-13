@@ -8,6 +8,7 @@ import {Race} from "../shared/race";
 import {DarkElf} from "./backend/dark-elf";
 import {HighElf} from "./backend/high-elf";
 import {WoodElf} from "./backend/wood-elf";
+import {CharacterClass} from "../shared/character-class";
 
 @Injectable()
 export class CharacterService {
@@ -48,9 +49,18 @@ export class CharacterService {
     }
   }
 
-  getClass(selectedClass: string) {
+  getClass(selectedClass: string): Observable<CharacterClass> {
     if(selectedClass == "Wizard") {
       return Observable.of(new Wizard()).delay(this.milliSeconds);
+    }
+  }
+
+  getCharacterPathFeatures(characterPath: string): Observable<any> {
+    if(characterPath == "Evocation") {
+      return Observable.of(["Evocation Savant", "Sculpt Spells", "Potent Cantrip"]).delay(this.milliSeconds);
+    }
+    if(characterPath == "Illusion") {
+      return Observable.of(["Illusion Savant", "Improved Minor Illusion", "Malleable Illusion"]).delay(this.milliSeconds);
     }
   }
 }
