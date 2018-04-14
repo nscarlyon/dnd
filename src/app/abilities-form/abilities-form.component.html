@@ -8,30 +8,9 @@
     <div class="ability-modifier-column">Ability Modifier</div>
   </div>
   <form *ngIf="abilitiesForm" [formGroup]="abilitiesForm">
-    <div formArrayName="abilities">
-      <div class="ability-row" *ngFor="let ability of abilities.controls; let i = index" [formGroupName]="i">
-        <div class="ability-name-column">
-          {{ability.get('abilityName').value}}
-        </div>
-        <div class="ability-stat-column"><label>
-          <input type="text" formControlName="abilityStat">
-        </label>
-        </div>
-        <div class="race-modifier-column">
-          <label>
-            <input type="text" formControlName="raceModifier">
-          </label>
-        </div>
-        <div class="ability-total-column">
-          <label>
-            <input type="text" formControlName="abilityTotalScore">
-          </label>
-        </div>
-        <div class="ability-modifier-column">
-          <label>
-            <input type="text" formControlName="abilityModifier">
-          </label>
-        </div>
+    <div class="ability-row">
+      <div class="ability-name-column">
+        Strength
       </div>
     </div>
   </form>

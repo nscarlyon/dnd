@@ -1,5 +1,3 @@
-import {Race} from "./race";
-
 export class RaceSelection {
   parentRace: string;
   subRaces: string[];
