@@ -13,11 +13,11 @@ export class CharacterPubSubService {
     this.savedCharacterForm.next(object);
   }
 
-  onUpdate(): Observable<any> {
-    return this.observable;
-  }
-
   getValue(): any {
     return this.savedCharacterForm.getValue();
+  }
+
+  onUpdate(): Observable<any> {
+    return this.observable;
   }
 }

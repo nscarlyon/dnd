@@ -1,4 +1,5 @@
 import {FormControl} from "@angular/forms";
+
 export class Ability {
   abilityName: string;
   abilityStat: FormControl  = new FormControl(0);

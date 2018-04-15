@@ -8,7 +8,7 @@
     <div class="ability-modifier-column">Ability Modifier</div>
   </div>
   <form *ngIf="abilitiesForm" [formGroup]="abilitiesForm">
-    <div class="ability-row">
+    <div class="ability-row" formGroupName="strength">
       <div class="ability-name-column">
         Strength
       </div>
