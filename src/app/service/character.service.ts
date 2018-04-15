@@ -21,7 +21,7 @@ export class CharacterService {
   }
 
   getClasses(): Observable<string[]> {
-    return Observable.of(["Barbarian", "Wizard"]).delay(this.milliSeconds);
+    return Observable.of(["Wizard", "Barbarian"]).delay(this.milliSeconds);
   }
 
   getRaces(): Observable<RaceSelection[]> {
