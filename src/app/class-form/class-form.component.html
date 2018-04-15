@@ -2,7 +2,7 @@
   <h3>{{savedCharacterForm.characterName}} The {{savedCharacterForm.characterClass}}</h3>
   <form *ngIf="classForm" [formGroup]="classForm">
     <div class="form-group">
-      <label>Arcane Tradition:
+      <label>Character Path:
         <select class="form-control" formControlName="characterPath">
           <option *ngFor="let path of characterPaths" [value]="path">{{path}}</option>
         </select>
