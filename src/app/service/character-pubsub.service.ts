@@ -2,11 +2,9 @@ import {BehaviorSubject, Observable} from "rxjs";
 
 export class CharacterPubSubService {
   protected savedCharacterForm: BehaviorSubject<any>;
-  protected observable: Observable<any>;
 
   constructor() {
     this.savedCharacterForm = new BehaviorSubject<any>(null);
-    this.observable = this.savedCharacterForm.asObservable();
   }
 
   update(object?: any): void {
@@ -14,7 +12,7 @@ export class CharacterPubSubService {
   }
 
   onUpdate(): Observable<any> {
-    return this.observable;
+    return this.savedCharacterForm.asObservable();
   }
 
   getValue(): any {

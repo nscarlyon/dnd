@@ -7,8 +7,6 @@ import 'rxjs/add/operator/map';
 import {Router} from "@angular/router";
 import {FormBuilder, FormArray, FormGroup} from "@angular/forms";
 import {Ability} from "../shared/ability";
-import ableToSwitchToFrame = until.ableToSwitchToFrame;
-import {until} from "selenium-webdriver";
 
 @Component({
   selector: 'app-abilities-form',
@@ -36,16 +34,8 @@ export class AbilitiesFormComponent implements OnInit {
     this.characterService.getRace(this.savedCharacterForm.characterRace).subscribe((race: Race) => {
       this.characterRace = race;
       this.createAbilitiesForm();
-      this.onChanges();
+      this.autoSave();
     })
-  }
-
-  goToPageThree(): void {
-    this.router.navigate(["3"]);
-  }
-
-  goToPageOne(): void {
-    this.router.navigate([""]);
   }
 
   createAbilitiesForm() {
@@ -71,23 +61,22 @@ export class AbilitiesFormComponent implements OnInit {
     return this.abilitiesForm.get('abilities') as FormArray;
   }
 
-  onChanges() {
-    this.abilities.controls.forEach(ability => {
-      ability
-        .valueChanges
-        .debounceTime(500)
-        .subscribe(() => {
-          this.updateAbilityScores(ability);
-          this.characterPubSub.update(this.savedCharacterForm);
-      })
+  autoSave() {
+    this.abilities.controls.forEach((ability) => {
+      ability.valueChanges
+              .debounceTime(500)
+              .subscribe(() => {
+                this.savedCharacterForm.abilities = this.abilities;
+                this.characterPubSub.update(this.savedCharacterForm);
+              })
     })
   }
 
-  updateAbilityScores(ability) {
-    let abilityTotalScore: number = Number(ability.get('abilityStat').value) + Number(ability.get('raceModifier').value);
-    let abilityModifier: number = Math.floor((abilityTotalScore - 10) / 2);
-    ability.patchValue({abilityTotalScore: abilityTotalScore}, {emitEvent: false});
-    ability.patchValue({abilityModifier: abilityModifier}, {emitEvent: false});
-    this.savedCharacterForm.abilities = this.abilities;
+  goToPageThree(): void {
+    this.router.navigate(["3"]);
+  }
+
+  goToPageOne(): void {
+    this.router.navigate([""]);
   }
 }
