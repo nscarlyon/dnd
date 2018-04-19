@@ -23,7 +23,7 @@ export class ClassFormComponent implements OnInit {
   ngOnInit() {
     this.savedCharacterForm = this.characterPubSub.getValue();
     this.characterService.getClass(this.savedCharacterForm.characterClass).subscribe((characterClass: any) => {
-      this.characterPaths = characterClass.arcaneTraditions;
+      this.characterPaths = characterClass.characterPaths;
       this.createClassForm();
       this.onChanges();
     })
